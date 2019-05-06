@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Welcome</title>
+	<style type="text/css">
+	h1{
+		color:red;
+		font-size:10px;
+	}
+	</style>
+</head>
+<body>
+
+	<p>查询文本：{{querypath}}</p>
+	<!--<pre >{{targettext}}</pre>-->
+
+	{%for (i,j) in everysim%}
+		<p>文档：{{i}}</p>
+		<p>相似度：{{j}}</p>
+	{%endfor%}
+	<br>
+	<br>
+	<h1>最相似文本：{{simpath}}</h1>
+	<!--<pre >{{simtext}}</pre>-->
+
+	<h1>相似度：{{sim}}</h1>
+	<p>详细比对：</p>
+	{% for (i,j,k) in result %}
+
+
+		<h1>查询文本：{{i}}</h1>
+		<h1>相似句子：{{j}}</h1>
+		<p>句子相似度：{{k}}</p>
+
+
+	{% endfor %}
+
+
+</body>
+</html>

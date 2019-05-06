@@ -1,0 +1,1190 @@
+Oracle数据库实训任务书
+一、实训目标
+通过项目实战，理解数据库的基本概念，熟悉Oracle的基本操作，创建用户、表、检查约束，编写SQL语句执行数据库查询、新增、修改、删除，为Java、.Net开发提供数据存储及数据操作的基础。
+课程要求从两个方面的能力目标实现，素养目标要求学员在通过学习具备相对应的学习技能、素养要求；技术目标要求学员必须掌握课程产品所定义的知识与技能。
+（1）素养目标
+分析需求的能力；
+问题解决能力、总结归纳能力。
+（2）技术目标
+操作Oracle的能力；
+SQL语句编写的能力。
+
+二、实训内容（见附录）
+
+
+三、实训进度安排
+按教学计划规定，该设计总学时数为1周，其进度及时间大致分配如下：
+
+
+四、考核评定
+
+
+
+学习态度
+
+
+
+
+
+
+
+
+
+ 
+青岛科技大学
+《Oracle数据库实训》
+
+
+
+
+题目     网上商城购物系统       
+
+
+
+
+
+指导教师：        徐美娇          
+姓    名：         张允贵          
+学    号：       1508060319        
+班    级：       153                  
+		专    业：     软件工程             
+地    点：青科大崂山校区弘毅楼c408
+		时    间：   2017.6.20 至 2017.6.24  
+
+
+一、需求规格说明
+1 文档介绍
+文档目的
+本需求分析规格说明书的目的是为软件开发和客户之间就“网上购物平台”项目提供需求范围和需求内容的规定。
+通过此文档向客户展示他们对项目的理解，并且当规格说明书得到用户确认后，它将成为开发此软件在进行项目设计、实现、测试和实施过程中唯一的需求规范。
+1.2 文档范围
+文档包括，对产品的介绍，产品面向的用户群体，产品遵循的规范，产品中的角色，产品范围，业务流程，各功能模块的划分，以及各模块包含的子功能，产品的功能性需求和非功能性需求。
+1.3 读者对象
+需求的合法读者：支持本项目的徐美娇老师，开发成员，项目负责人，系统设计人员，数据库设计人员，编码人员，软件测试人员，客户。
+1.4 参考文档
+1.5 术语与缩写解释
+
+
+
+
+
+
+
+
+
+
+2 产品介绍
+在社会竞争日益激烈的今天，我们面临越来越多的工作和生活压力，随之而来的就是自身的休息时间逐渐减少，从而有很多的大众没有时间或者宁愿节省时间去工作、加班，受到生活环境和时间的限制，有很多人没有时间去购物或者宁愿珍惜自己的休息时间去好好休整。为了改变这种状况，越来越多的人选择在网上购物，节省大量的时间。
+随着互联网的发展，人们对互联网购物的要求也在不断提高，这就要求商城网站不单只做单纯的买卖平台，还要提供更多的，更方便的功能来满足人们的需求。
+本应用系统应达到的目标概述如下：
+为用户们提供一个拥有大量选择的平台，使那些需要节省大量时间的用户以最少的时间选择自己最需要的物品，并物有所值。
+3 产品面向的用户群体
+本产品最终面向的用户群是以全龄，以网络购物为目的的用户。主要给那些不愿出门购物或没有时间购物为主的人提供一个节省购物时间的平台，在这里用户可以找到各类物品，易于比较并节省大量时间。
+本产品不适用于年龄太小、不以网络购物为主要目的的其它网民。
+
+4产品应当遵循的标准或规范
+本软件的开发完全按照企业标准开发。数据命名的规则遵循《语言编程规约》中相关的规定，软件开发遵循国际通用CMMI标准。
+5 产品范围
+本产品最终面向的用户群是以网络购物为主要目的的用户，通过本网络使用户通过搜索、选择产品、购入、评价等方式实现网络购物的目的。
+6 产品中的角色
+
+
+
+
+
+
+
+7 产品的功能性需求
+7.1 业务整体规划
+7.1.1 整体业务用例图
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.1.2 整体功能划分
+在本系统中，主要包括用户、卖家和管理员三个角色。本系统初期重点突出用户的管理的权限，具体用户的权限如下：
+用户自我管理。主要包括新用户的注册、登录和退出登录以及用户基本信息的管理三个部分，实现用户的相关自我的一些基本操作。
+查看商品。实现用户对商品的搜索查看等功能。
+收藏夹。实现用户对商品的收藏。
+购买商品。实现用户对商品的购买。
+评价商品。实现用户收货后对商品的评价。
+管理员权限如下：
+商品管理。体现管理员对各卖家的商品进行管理，如发现不合格商品，马上下架。
+支付宝。体现用户和卖家之间的桥梁，用户收到货物后管理员将用户打到支付宝的钱转到卖家卡上。
+举报管理。实现用户对卖家的投诉，核实实情，解决用户与卖家的矛盾，如果卖家货物不合格，则将卖家账号整顿，合格后继续上架。
+7.2 用户自我管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+用例描述：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.3搜查商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.4收藏商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.5购买商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.6评价商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.7订单管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.8订单管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.9商品管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.10划账管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.11投诉管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8 软硬件环境需求
+
+9 产品质量需求
+
+
+
+
+
+
+二、数据库设计
+0. 文档介绍
+0.1 文档目的
+本文档是SNS交友社区项目的第二阶段，本阶段主要解决系统用到的数据库的设计问题，数据库设计的根据是前一阶段形成的《系统需求规格说明书》，根据《系统规格说明书》中对系统的描述，确定系统涉及到的数据库表。
+本系统设计的数据库表是进行系统开发的基础，在数据库设计的基础上可以进行系统的详细设计。在以后的软件测试以及软件维护阶段也可参考此说明书，以便于了解在数据库设计阶段中设计的各个表的信息，或在下一阶段修改时找出在本阶段设计的不足或错误。
+ 
+0.2 文档范围
+文档包括：数据库环境说明，数据库命名规则，逻辑设计，物理设计，安全设计，数据库优化，数据库管理和维护说明等信息。
+0.3 读者对象
+数据库设计报告书的合法读者系统设计人员，数据库设计人员，编码人员，软件测试人员，客户。
+0.5 术语与缩写解释
+
+
+
+1. 数据库环境说明
+本系统采用Oracle数据库系统
+2. 数据库的命名规则
+（1）、表名以tb_开头，当表名中含有两个以上的英文单词时，单词间不加空格，但是从第二个单词开始的单词首字母要大写。
+	（2）、表中的字段名首字母小写，字段名中含有两个以上的英文单词时，单词间不加空格，但是从第二个单词开始的单词首字母要大写。
+3. 逻辑设计
+详细设计略。
+4. 物理设计
+4.0 表汇总
+
+
+4.1 tb_user表(用户信息表)
+
+4.2 tb_product表(商品信息表)
+
+
+4.3 tb_productType表（商品类型表）
+
+
+4.4 tb_order表（订单表）
+
+
+4.5 tb_userAccount表（用户资金流水表）
+
+
+4.6 tb_review表（评论表）
+
+
+4.7 tb_province表（省份数据字典）
+
+
+4.8 tb_city表（城市数据字典）
+
+
+4.9 tb_productSize表（商品型号表）
+
+
+
+4.10 tb_productColor表（商品颜色表）
+
+5. 安全性设计
+5.1 防止用户直接操作数据库的方法
+用户只能用帐号登陆到应用软件，通过相应的功能访问数据库，而没有其他途径操作数据库。
+5.2 角色与权限
+提示：确定每个角色对数据库表的操作权限，如创建、检索、更新、删除等。每个角色拥有刚好能够完成任务的权限，不多也不少。在应用时再为用户分配角色，则每个用户的权限等于他所兼角色的权限之和。
+
+
+
+6. 优化
+提示：分析并优化数据库的“时－空”效率，尽可能地“提高处理速度”并且“降低数据占用空间”。
+（1）分析“时－空”效率的瓶颈，找出优化对象（目标），并确定优先级。
+（2）当优化对象（目标）之间存在对抗时，给出折衷方案。
+（3）给出优化的具体措施，例如优化数据库环境参数，对表格进行反规范化处理等。
+
+
+
+7. 数据库管理与维护说明
+提示：在设计数据库的时候，及时给出管理与维护本数据库的方法，有助于将来撰写出正确完备的用户手册。
+
+
+三、附录
+
+a注意:代码下附上图示
+
+一、创建数据库
+/*创建用户*/
+
+二、创建表
+/*创建tb_user表*/
+drop sequence userID_seq;
+
+create sequence userID_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+create table tb_user
+(
+userID number PRIMARY KEY not null,
+name varchar2 (50) not null UNIQUE,
+password varchar2(30) not null,
+email varchar2(30),
+provinceID number,
+cityID number  REFERENCES tb_city (cityID),
+telephone char(11),
+sex char(3) default '男',
+age number,
+birthday date ,
+money number default 0,
+photo varchar2(500),
+dsp varchar2(200),
+qq varchar2(15),
+msn varchar2(50),
+loveBook varchar2(200),
+loveMusic varchar2(200),
+loveMovie varchar2(200),
+loveSport varchar2(200),
+loveGame varchar2(200)
+)
+/*创建tb_product表*/
+drop sequence tb_product_seq;
+
+create sequence tb_product_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_product
+(
+productID number primary key not null,
+userID number references tb_user (userID) not null,
+productName varchar2(50) not null,
+typeID number references tb_productType (productTypeID) not null,
+price number not null,
+photo varchar2(500),
+information varchar2(500)
+)
+/*创建tb_productType表*/
+drop sequence tb_productType_seq;
+
+create sequence tb_productType_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_productType
+(
+productTypeID number primary key not null,
+productTypeName varchar2(100) not null
+)/*创建tb_order表*/
+ (orderState,orderID) 
+drop sequence tb_order_seq;
+
+create sequence tb_order_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_order
+(
+orderID number primary key not null,
+toID number references tb_user(userID) not null,
+colorID number references tb_productColor(productColorID) not null,
+productID number references tb_product(productID) not null,
+address varchar2(100) not null,
+telephone char(11) not null,
+orderState number not null,
+count number not null,
+price number not null,
+orderDate date not null,
+consignmentDate date not null
+)
+/*创建tb_userAccount表*/
+drop sequence tb_userAccount_seq;
+
+create sequence tb_userAccount_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_userAccount
+(
+userAccountID number primary key not null,
+userID number references tb_user(userID) not null,
+orderID number references tb_order(orderID) not null,
+type number not null,
+time date not null
+)
+/*创建tb_review表*/
+drop sequence tb_review_seq;
+
+create sequence tb_review_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_review
+(
+reviewID number primary key not null,
+review varchar2(250) not null,
+isReply char(1) default 0 not null,
+isDel char(1) default 0 not null,
+senderID number references tb_user(userID) not null,
+productID number references tb_product(productID) not null,
+addTime date not null,
+replyID number 
+)
+/*创建tb_province表*/
+drop sequence tb_province_seq;
+
+create sequence tb_province_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_province
+(
+provinceID number primary key not null,
+provinceName varchar2(30) not null
+)
+/*创建tb_city表*/
+drop sequence tb_city_seq;
+
+create sequence tb_city_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_city
+(
+cityID number PRIMARY KEY not null,
+provinceID number not null  REFERENCES tb_province (provinceID) ,
+cityName varchar2(30) not null
+)
+
+/*创建tb_productSize表*/
+drop sequence tb_productSize_seq;
+
+create sequence tb_productSize_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_productSize
+(
+productSizeID number primary key not null,
+productSize varchar2(20) not null,
+productID number references tb_product(productID)
+)
+
+/*创建tb_productColor表*/
+drop sequence tb_productColor_seq;
+
+create sequence tb_productColor_seq
+increment by 1
+start with 1
+nomaxvalue
+nominvalue
+nocache;
+
+create table tb_productColor
+(
+productColorID number primary key not null,
+productColor varchar2(20) not null,
+stockpile number not null,
+productSizeID number references tb_productSize(productSizeID)
+)
+
+
+三、添加约束
+/*给每个表添加约束*/
+
+
+
+
+
+
+
+
+
+
+四、基础数据(商品类型+省份+城市)添加
+/*基础数据(商品类型+省份+城市)添加*/
+/*tb_productType表添加商品类型*/
+insert into tb_productType values(tb_productType_seq.nextval,'日常用品');
+insert into tb_productType values(tb_productType_seq.nextval,'家用电器');
+insert into tb_productType values(tb_productType_seq.nextval,'食品');
+insert into tb_productType values(tb_productType_seq.nextval,'服装');
+insert into tb_productType values(tb_productType_seq.nextval,'鞋帽');
+
+/*tb_province表添加省份名称*/
+insert into tb_province values(tb_province_seq.nextval,'北京');
+insert into tb_province values(tb_province_seq.nextval,'上海');
+insert into tb_province values(tb_province_seq.nextval,'山东');
+insert into tb_province values(tb_province_seq.nextval,'江苏');
+insert into tb_province values(tb_province_seq.nextval,'河南');
+
+/*tb_city表给山东省添加城市名称*/
+insert into tb_city values(tb_city_seq.nextval,(select provinceID from tb_province where provinceName='山东'),'威海');
+insert into tb_city values(tb_city_seq.nextval,(select provinceID from tb_province where provinceName='山东'),'东营');
+insert into tb_city values(tb_city_seq.nextval,(select provinceID from tb_province where provinceName='山东'),'济南');
+insert into tb_city values(tb_city_seq.nextval,(select provinceID from tb_province where provinceName='山东'),'青岛');
+insert into tb_city values(tb_city_seq.nextval,(select provinceID from tb_province where provinceName='山东'),'淄博');
+insert into tb_city values(tb_city_seq.nextval,(select provinceID from tb_province where provinceName='山东'),'潍坊');
+
+
+五、用户数据(注册+信息完善)添加
+/*用户数据(注册+信息完善)添加*/
+/*tb_user表添加用户信息*/
+
+insert into tb_user
+values(userID_seq.nextval,'zyg19960904','123','577388902@qq.com',(select provinceID from tb_province where provinceName='山东'),(select cityID from tb_city where cityName='东营'),'15166260260','男','21','04-9月-96','','','','577388902','','书','死了都要爱','变形金刚','体育','QQfarm');
+insert into tb_user
+values(userID_seq.nextval,'zyg','123','',(select provinceID from tb_province where provinceName='山东'),(select cityID from tb_city where cityName='青岛'),'17864282126','男','20','04-9月-96','','','','','','','','','','');
+ 
+
+六、商品信息(商品信息+型号+颜色)添加
+/*商品信息(商品信息+型号+颜色)添加*/
+/*tb_product表添加商品信息*/
+insert into tb_product values(tb_product_seq.nextval,2,'adidasT恤',(select productTypeID from tb_productType where productTypeName='服装'),200,'','');
+insert into tb_product values(tb_product_seq.nextval,2,'苹果',(select productTypeID from tb_productType where productTypeName='食品'),5'','');
+insert into tb_product values(tb_product_seq.nextval,2,'休闲鞋',(select productTypeID from tb_productType where productTypeName='鞋帽'),300,'','');
+insert into tb_product values(tb_product_seq.nextval,2,'牙膏',(select productTypeID from tb_productType where productTypeName='日常用品'),20,'','');
+ 
+
+/*tb_productSize表添加商品型号*/
+insert into tb_productSize values(tb_productSize_seq.nextval,'L',(select productID from tb_product where productName='adidasT恤'));
+insert into tb_productSize values(tb_productSize_seq.nextval,'XL',(select productID from tb_product where productName='adidasT恤'));
+insert into tb_productSize values(tb_productSize_seq.nextval,'XXL',(select productID from tb_product where productName='adidasT恤'));
+insert into tb_productSize values(tb_productSize_seq.nextval,'40',(select productID from tb_product where productName='休闲鞋'));
+insert into tb_productSize values(tb_productSize_seq.nextval,'41',(select productID from tb_product where productName='休闲鞋'));
+insert into tb_productSize values(tb_productSize_seq.nextval,'42',(select productID from tb_product where productName='休闲鞋'));
+insert into tb_productSize values(tb_productSize_seq.nextval,'43',(select productID from tb_product where productName='休闲鞋'));
+ 
+
+/*tb_productColor表添加商品型号*/
+insert into tb_productColor values(tb_productColor_seq.nextval,'红色',100,1);
+insert into tb_productColor values(tb_productColor_seq.nextval,'黑色',100,1);
+insert into tb_productColor values(tb_productColor_seq.nextval,'红色',100,2);
+insert into tb_productColor values(tb_productColor_seq.nextval,'黑色',100,2);
+insert into tb_productColor values(tb_productColor_seq.nextval,'黑色',100,3);
+insert into tb_productColor values(tb_productColor_seq.nextval,'红色',100,3);
+insert into tb_productColor values(tb_productColor_seq.nextval,'灰色',50,4);
+insert into tb_productColor values(tb_productColor_seq.nextval,'黑色',50,4);
+insert into tb_productColor values(tb_productColor_seq.nextval,'灰色',50,5);
+insert into tb_productColor values(tb_productColor_seq.nextval,'黑色',50,5);
+insert into tb_productColor values(tb_productColor_seq.nextval,'灰色',50,6);
+insert into tb_productColor values(tb_productColor_seq.nextval,'黑色',50,6);
+insert into tb_productColor values(tb_productColor_seq.nextval,'灰色',50,7);
+insert into tb_productColor values(tb_productColor_seq.nextval,'黑色',50,7);
+
+
+七、删除用户信息
+/*删除用户****/
+create or replace trigger del_user
+before delete on tb_user
+for each row
+begin
+delete from tb_product where userID=:old.userID;
+delete from tb_order where toID=:old.userID;
+delete from tb_userAccount where userID=:old.userID;
+delete from tb_review where senderID=:old.userID;
+end;
+delete from tb_user where name='zyg';
+
+八、商品信息查询
+/*商品信息查询*/
+declare
+NAME varchar2(50);
+productID number;
+userID number;
+productName varchar2(50);
+    typeID number;
+    price number;
+    photo varchar2(500);
+    information varchar2(500);
+begin
+Name:='&商品名称';
+select productID,userID,productName,typeID,price,photo,information into productID,userID,productName,typeID,price,photo,information from tb_product where productName like '%'||Name||'%';
+dbms_output.put_line(productID||'   '||userID||'   '||productName||'   '||typeID||'   '||price||'   '||photo||'   '||information);
+exception
+  when no_data_found then
+  dbms_output.put_line('没有您要查找的信息');
+  when too_many_rows then
+  dbms_output.put_line('显示多行数据');
+  when others then
+  dbms_output.put_line('其他异常');
+end;
+/*单表查询*/
+/*查询tb_product表中商品id为的商品信息*/
+
+declare
+id number;
+productID number;
+userID number;
+productName varchar2(50);
+    typeID number;
+    price number;
+    photo varchar2(500);
+    information varchar2(500);
+begin
+id:=&id;
+select productID,userID,productName,typeID,price,photo,information into productID,userID,productName,typeID,price,photo,information from tb_product where productID=id;
+dbms_output.put_line(productID||'   '||userID||'   '||productName||'   '||typeID||'   '||price||'   '||photo||'   '||information);
+exception
+  when no_data_found then
+  dbms_output.put_line('没有您要查找的信息');
+  when too_many_rows then
+  dbms_output.put_line('显示多行数据');
+  when others then
+  dbms_output.put_line('其他异常');
+end;
+
+
+/*查询tb_productSize表中商品id为的型号信息*/
+declare
+id number;
+PRODUCTSIZEID number;
+PRODUCTSIZE VARCHAR2(20);
+PRODUCTID number;
+cursor cur_1(id number)
+is
+select PRODUCTSIZEID,PRODUCTSIZE,PRODUCTID from tb_productSize where PRODUCTID=id;
+begin
+id:=&id;
+open cur_1(id);
+loop
+fetch cur_1 into PRODUCTSIZEID,PRODUCTSIZE,PRODUCTID;
+exit when cur_1%notfound;
+dbms_output.put_line(PRODUCTSIZEID||'   '||PRODUCTID||'   '||PRODUCTSIZE);
+end loop;
+close cur_1;
+exception
+  when no_data_found then
+  dbms_output.put_line('没有您要查找的信息');
+  when too_many_rows then
+  dbms_output.put_line('显示多行数据');
+  when others then
+  dbms_output.put_line('其他异常');
+end;
+
+
+
+
+/*查询tb_productColor表中商品型号id为、、的颜色与库存信息*/
+declare
+id number;
+PRODUCTCOLORID number;
+PRODUCTCOLOR VARCHAR2(20);
+STOCKPILE number;
+PRODUCTSIZEID number;
+cursor cur2(id number)
+is
+select PRODUCTCOLORID,PRODUCTCOLOR,STOCKPILE,PRODUCTSIZEID from tb_productColor where PRODUCTSIZEID=id;
+begin
+id:=&id;
+open cur2(id);
+loop
+fetch cur2 into PRODUCTCOLORID,PRODUCTCOLOR,STOCKPILE,PRODUCTSIZEID;
+exit when cur2%notfound;
+dbms_output.put_line(PRODUCTCOLORID||'   '||PRODUCTCOLOR||'   '||STOCKPILE||'   '||PRODUCTSIZEID);
+end loop;
+close cur2;
+end;
+
+
+/*多表查询*/
+/*用户在商城以商品类型查询一件商品的名称*/
+declare
+typename varchar2(200);
+productname varchar2(50);
+cursor cur3(typename varchar2)
+is
+select productName from tb_product where TYPEID=(select productTypeID from tb_productType where PRODUCTTYPENAME=typename);
+begin
+typename:='&类别名';
+open cur3(typename);
+loop
+fetch cur3 into productname;
+exit when cur3%notfound;
+dbms_output.put_line(productname);
+end loop;
+close cur3;
+end;
+
+
+/*用户在商城以商品名称查询一件商品的所有信息*/
+declare
+NAME varchar2(50);
+productID number;
+userID number;
+productName varchar2(50);
+typeID number;
+price number;
+photo varchar2(500);
+information varchar2(500);
+productType varchar2(200);
+productSize varchar2(20);
+productColor varchar2(20);
+STOCKPILE number;
+cursor cur4(Name varchar2)
+is
+select tb_product.productID,userID,productName,price,photo,information,productType,PRODUCTSIZE,productColor,STOCKPILE
+from tb_product join tb_productType on tb_product.typeID=tb_productType.productTypeID join tb_productSize on tb_product.productID=tb_productSize.PRODUCTID join tb_productColor on tb_productColor.PRODUCTSIZEID=tb_productSize.PRODUCTSIZEID   
+where productName like '%'||Name||'%';
+begin
+Name:='&商品名称';
+open cur4(Name);
+loop
+fetch cur4 into productID,userID,productName,price,photo,information,productType,productSize,productColor,STOCKPILE ;
+exit when cur4%notfound;
+dbms_output.put_line(productID||'   '||userID||'   '||productName||'   '||typeID||'   '||price||'   '||photo||'   '||information||'   '||productType||'   '||productSize||'   '||productColor||'   '||STOCKPILE);
+end loop;
+close cur4;
+end;
+
+
+
+
+九、用户信息查询
+/*用户信息查询*/
+/*用户在商城可以查询已知用户(或卖家)的基本信息*/
+declare
+    name varchar2(20);
+    email varchar2(30);
+    provinceID number;
+    cityID number;
+    telephone char(11);
+    sex char(3);
+    birthday date;
+    photo varchar2(500);
+    dsp varchar2(500);
+    qq varchar2(15);
+    msn varchar2(50);
+    loveBook varchar2(200);
+    loveMusic varchar2(200);
+    loveMovie varchar2(200);
+    loveSport varchar2(200);
+    loveGame varchar2(200);
+    username varchar2(20);
+begin
+username:='&要查询用户的username';
+select name,email,provinceID,cityID,telephone,sex,birthday,photo,dsp,qq,msn,loveBook,loveMusic,loveMovie,loveSport,loveGame
+into name,email,provinceID,cityID,telephone,sex,birthday,photo,dsp,qq,msn,loveBook,loveMusic,loveMovie,loveSport,loveGame from tb_user where name=username;
+dbms_output.put_line(name||'   '||email||'   '||provinceID||'   '||cityID||'   '||telephone||'   '||sex||'   '||birthday||'   '||photo||'   '||dsp||'   '||qq||'   '||msn||'   '||loveBook||'   '||loveMusic||'   '||loveMovie||'   '||loveSport||'   '||loveGame);
+end;
+
+
+十、用户下订单并确认付款（应用）
+/*用户下订单并确认付款(应用事务)*/
+declare
+torderid number;
+price_unit number;/*定义变量,用于存储本次订单的物品单价*/
+tproductID number;/*定义变量,用于存储本次订单的物品ID*/
+tproductColorID number;/*定义变量,用于存储本次订单的颜色ID*/
+tuserID number;/*定义变量,用于存储本次订单的买家ID*/
+userAccountID number;/*定义变量,用于存储流水表的用户ID*/
+num number;
+stock number;--原有库存量
+usermoney number;--用户剩余金额
+ADDRESS varchar2(200);
+TELEPHONE char(11);
+/*用户****下订单*/
+begin
+tuserID:=&用户id;
+tproductID:=&要购买的商品编号;
+tproductColorID:=&要购买的颜色;
+num:=&要购买的数量;
+ADDRESS:='&地址';
+TELEPHONE:='&联系方式';
+select price into price_unit from tb_product where productID=tproductID;
+select STOCKPILE into stock from tb_productColor where productColorID=tproductColorID;
+select MONEY into usermoney from tb_user where userID=tuserID;
+
+if num>stock
+    then dbms_output.put_line('数量不足，购买失败');
+else if price_unit*num>usermoney
+    then dbms_output.put_line('余额不足，购买失败');
+else
+insert into tb_order(TOID,COLORID,PRODUCTID,ADDRESS,TELEPHONE,ORDERSTATE,COUNT,PRICE,ORDERDATE) 
+            values(tuserID,tproductColorID,tproductID,ADDRESS,TELEPHONE,1,num,price_unit*num,sysdate);
+end if;
+end if;
+
+
+
+
+
+/*下订单后减少商品库存*/
+
+update tb_productColor set STOCKPILE=STOCKPILE-num where productColorID=tproductColorID;
+/*确认付款后减少用户余额*/
+update tb_user set money=money-price_unit*num where userID=tuserID;
+
+/*将用户付款的资金冻结后订单状态改为已付款*/
+select  orderID into torderid FROM tb_order where rownum<2 order by orderID desc ;
+update tb_order set ORDERSTATE=2 where orderID=torderid;
+
+/*用户账户上的钱转账完成后建立用户资金流水表一条买家购买商品支出记录*/
+insert into tb_userAccount(USERID,ORDERID,TYPE,TIME) values(tuserID,torderid,1,sysdate);
+exception
+  when no_data_found then
+  dbms_output.put_line('没有您要查找的信息');
+  when too_many_rows then
+  dbms_output.put_line('显示多行数据');
+  when others then
+  dbms_output.put_line('其他异常');
+end;
+
+
+十一、买家对订单信息进行修改（包括发货后的订单状态修改及修改商品颜色时应用事务）
+/*卖家对订单信息进行修改*/
+/*假设买家***想修改商品的颜色，则需要应用事务，对相应颜色的库存进行修改*/
+/*修改信息是各项信息均为可选择项，如不想修改某项信息，则选择以前的选项，但是会将数据重复的修改一次，即用相同的数据来覆盖之前的数据*/
+/*除此之外卖家发货后可将订单状态改为发货*/
+/*定义变量,用于存储本次订单的物品单价*/
+declare
+id number;
+tuserID number;
+unit_price number;
+addr varchar2(200);
+colorID number;
+tele char(11);
+newaddr varchar2(200);
+newcolorID number;
+newtele char(11);
+discount number;
+num number;
+/*修改tb_order表中的送货地址*/
+begin
+id:=&要修改的订单id;
+newaddr:='&新地址';
+select COUNT into num from tb_order where orderID=id;
+select ADDRESS into addr from tb_order where orderID=id;
+if (addr!=newaddr) then update tb_order set ADDRESS=newaddr where orderID=id;
+end if;
+
+
+/*修改tb_order表中的联系方式*/
+newtele:='&新联系方式';
+select TELEPHONE into tele from tb_order where orderID=id;
+if (tele!=newtele) then update tb_order set TELEPHONE=newtele where orderID=id;
+end if;
+/*修改tb_order表中的状态*/
+	--若卖家因故不能发货，但已付款则卖家可修改订单状态为'延后'
+update tb_order set orderState=3 where orderID=id;
+
+
+/*修改tb_order表中的商品颜色*/
+
+newcolorID:=&新的颜色;
+select COLORID into colorID from tb_order where orderID=id;
+if (colorID!=newcolorID) then 
+begin
+update tb_productColor set STOCKPILE=STOCKPILE+num where productColorID=colorID;
+update tb_productColor set STOCKPILE=STOCKPILE-num where productColorID=newcolorID;
+update tb_order set COLORID=newcolorID where orderID=id;
+end;
+end if;
+
+/*修改tb_order表中的商品总价*/
+	--若和买家商议后买家同意降价，但商品信息上还是不修改的，就可以在订单总价上修改，付款后卖家修改总价，差价打回买家账户余额内
+discount:=&降价;
+update tb_order set price=price-discount where orderID=id;
+
+
+/*将与之前的差价加回买家账户余额内*/
+select toID into tuserID from tb_order where ORDERID=id;
+update tb_user set money = money+discount where userID=tuserID;
+
+/*修改颜色后要将之前选择的颜色库存加一再讲修改后的颜色库存减一*/
+exception
+  when no_data_found then
+  dbms_output.put_line('没有您要查找的信息');
+  when too_many_rows then
+  dbms_output.put_line('显示多行数据');
+  when others then
+  dbms_output.put_line('其他异常');
+end;
+
+
+
+十二、订单完成进行转账
+/*订单完成进行转账*/
+/*定义变量,用于存储流水表的用户ID*/
+declare
+tuserID number;
+torderID number;
+tproductID number;
+tprice number;
+
+/*买家收到商品后，修改tb_order表中的状态*/
+torderID:=&订单编号;
+update tb_order set ORDERSTATE=4 where ORDERID=torderID;
+
+/*订单状态为'完成'后建立用户资金流水表一条卖家出售商品收入记录*/
+select PRODUCTID into tproductID from tb_order where orderID=torderID;
+select userID into tuserID from tb_product where productID=tproductID;
+select price into tprice from tb_order where ORDERID=torderID;
+insert into tb_userAccount(USERID,ORDERID,TYPE,TIME) values(tuserID,torderID,2,sysdate);
+
+/*交易成功后卖家账户余额增加*/
+update tb_user set money=money+tprice where userID=tuserID;
+exception
+  when no_data_found then
+  dbms_output.put_line('没有您要查找的信息');
+  when too_many_rows then
+  dbms_output.put_line('显示多行数据');
+  when others then
+  dbms_output.put_line('其他异常');
+end;
+
+十三、货物丢件进行退款
+/*货物丢件进行退款*/
+/*前提条件:订单为发货状态，但物流出现丢件情况，由物流赔偿卖家，卖家确认丢件情况发生后，可进行退款操作*/
+/*定义变量,用于存储流水表的用户ID*/
+declare
+tuserID number;
+torderID number;
+tprice number;
+torderstate number;
+
+/*卖家确认商品丢件后，修改tb_order表中的状态*/
+begin
+tuserID:=&买家id;
+torderID:=&订单编号;
+select price into tprice from tb_order where orderID=torderID;
+select orderstate into torderstate from tb_order where orderID=torderID;
+if torderstate=4 then
+begin
+update tb_order set ORDERSTATE=5 where  orderID=torderID;
+insert into tb_userAccount(USERID,ORDERID,TYPE,TIME) values (tuserID,torderID,2,sysdate);
+update tb_user set money=money+tprice where userID=tuserID;
+end;
+end if;
+exception
+  when no_data_found then
+  dbms_output.put_line('没有您要查找的信息');
+  when too_many_rows then
+  dbms_output.put_line('显示多行数据');
+  when others then
+  dbms_output.put_line('其他异常');
+end;
+
+十四、视图
+--/*多表查询*/
+--/*用户在商城以商品类型查询一件商品的名称*/
+
+
+
+--/*用户在商城以商品名称查询一件商品的所有信息*/
+declare
+NAME varchar2(50);
+productID number;
+userID number;
+productName varchar2(50);
+typeID number;
+price number;
+photo varchar2(500);
+information varchar2(500);
+productType varchar2(200);
+productSize varchar2(20);
+productColor varchar2(20);
+STOCKPILE number;
+cursor cur4(Name varchar2)
+is
+select productID,userID,productName,price,photo,information,productTypeName,PRODUCTSIZE,productColor,STOCKPILE
+from view_product where productName like '%'||Name||'%';
+begin
+Name:='&商品名称';
+open cur4(Name);
+loop
+fetch cur4 into productID,userID,productName,price,photo,information,productType,productSize,productColor,STOCKPILE ;
+exit when cur4%notfound;
+dbms_output.put_line('id：'||productID||'  卖家：'||userID||' 产品名：'||productName||'   价格：'||price||'   信息：'||information||'  商品类别：'||productType||'   型号：'||productSize||'   颜色：'||productColor||'  库存量'||STOCKPILE);
+end loop;
+close cur4;
+end;
+
+
+
+
+
+--/*用户信息查询*/
+--/*用户在商城可以查询已知用户(或卖家)的基本信息*/
+create or replace view view_user
+as
+select name,email,provinceID,cityID,telephone,sex,birthday,photo,dsp,qq,msn,loveBook,loveMusic,loveMovie,loveSport,loveGame
+from tb_user;
+declare
+    name varchar2(20);
+    email varchar2(30);
+    provinceID number;
+    cityID number;
+    telephone char(11);
+    sex char(3);
+    birthday date;
+    photo varchar2(500);
+    dsp varchar2(500);
+    qq varchar2(15);
+    msn varchar2(50);
+    loveBook varchar2(200);
+    loveMusic varchar2(200);
+    loveMovie varchar2(200);
+    loveSport varchar2(200);
+    loveGame varchar2(200);
+    username varchar2(20);
+begin
+username:='&要查询用户的username';
+select name,email,provinceID,cityID,telephone,sex,birthday,photo,dsp,qq,msn,loveBook,loveMusic,loveMovie,loveSport,loveGame
+into name,email,provinceID,cityID,telephone,sex,birthday,photo,dsp,qq,msn,loveBook,loveMusic,loveMovie,loveSport,loveGame from view_user where name=username;
+dbms_output.put_line('用户名：'||name||'  email:'||email||'  省ID'||provinceID||'  市ID'||cityID||' 电话：'||telephone||' 性别：'||sex||'   生日：'||birthday||'  个性签名：'||dsp||'  qq：'||qq||'  msn：'||msn||' 爱好书籍：'||loveBook||'  爱好音乐：'||loveMusic||'  爱好电影：'||loveMovie||' 爱好运动：'||loveSport||' 爱好游戏：'||loveGame);
+end;
+
+十五、用户登录(选做) 例如:sql server 格式:
+/*用户登录(应用存储过程)*/ 
+create procedure proc_land
+@resultName int = 0,	--定义为表示用户名错误
+@resultPassWord int =0,	--定义为表示密码错误
+@userName nvarchar(10) = '***',  
+@PassWord nvarchar(30) = 'jhc123'   
+as
+select @resultName = COUNT(1) from tb_user where name=@userName									--只要表中有输入的用户名则为表示用户名存在
+select @resultPassWord = COUNT(1) from tb_user where name=@userName and [password]=@PassWord	--若存在的这个用户的信息里的密码等与输入的密码则为表示密码核对无误
+begin
+if @resultName = 1 and @resultPassWord = 1
+	print '用户登录成功！'
+else if @resultName = 0
+	print '用户名错误！'
+else if @resultPassWord = 0
+	print '密码错误！'
+end
+
+

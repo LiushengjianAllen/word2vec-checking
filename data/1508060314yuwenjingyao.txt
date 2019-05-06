@@ -1,0 +1,1014 @@
+Oracle数据库实训任务书
+一、实训目标
+通过项目实战，理解数据库的基本概念，熟悉Oracle的基本操作，创建用户、表、检查约束，编写SQL语句执行数据库查询、新增、修改、删除，为Java、.Net开发提供数据存储及数据操作的基础。
+课程要求从两个方面的能力目标实现，素养目标要求学员在通过学习具备相对应的学习技能、素养要求；技术目标要求学员必须掌握课程产品所定义的知识与技能。
+（1）素养目标
+分析需求的能力；
+问题解决能力、总结归纳能力。
+（2）技术目标
+操作Oracle的能力；
+SQL语句编写的能力。
+
+二、实训内容（见附录）
+
+
+三、实训进度安排
+按教学计划规定，该设计总学时数为1周，其进度及时间大致分配如下：
+
+
+四、考核评定
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+青岛科技大学
+《Oracle数据库实训》
+
+
+
+
+题目     网上商城购物系统       
+
+
+
+
+
+指导教师：        徐美娇          
+姓    名：        宇文婧瑶          
+学    号：    1508060309          
+班    级：         软件153          
+		专    业：   软件工程嵌入式       
+地    点：青科大崂山校区弘毅楼c408
+		时    间：   2017.6.20 至 2017.6.24  
+
+
+一、需求规格说明
+1 文档介绍
+文档目的
+本需求分析规格说明书的目的是为软件开发和客户之间就“网上购物平台”项目提供需求范围和需求内容的规定。
+通过此文档向客户展示他们对项目的理解，并且当规格说明书得到用户确认后，它将成为开发此软件在进行项目设计、实现、测试和实施过程中唯一的需求规范。
+1.2 文档范围
+文档包括，对产品的介绍，产品面向的用户群体，产品遵循的规范，产品中的角色，产品范围，业务流程，各功能模块的划分，以及各模块包含的子功能，产品的功能性需求和非功能性需求。
+1.3 读者对象
+需求的合法读者：支持本项目的徐美娇老师，开发成员，项目负责人，系统设计人员，数据库设计人员，编码人员，软件测试人员，客户。
+1.4 参考文档
+1.5 术语与缩写解释
+
+
+
+
+
+
+
+
+
+
+2 产品介绍
+在社会竞争日益激烈的今天，我们面临越来越多的工作和生活压力，随之而来的就是自身的休息时间逐渐减少，从而有很多的大众没有时间或者宁愿节省时间去工作、加班，受到生活环境和时间的限制，有很多人没有时间去购物或者宁愿珍惜自己的休息时间去好好休整。为了改变这种状况，越来越多的人选择在网上购物，节省大量的时间。
+随着互联网的发展，人们对互联网购物的要求也在不断提高，这就要求商城网站不单只做单纯的买卖平台，还要提供更多的，更方便的功能来满足人们的需求。
+本应用系统应达到的目标概述如下：
+为用户们提供一个拥有大量选择的平台，使那些需要节省大量时间的用户以最少的时间选择自己最需要的物品，并物有所值。
+3 产品面向的用户群体
+本产品最终面向的用户群是以全龄，以网络购物为目的的用户。主要给那些不愿出门购物或没有时间购物为主的人提供一个节省购物时间的平台，在这里用户可以找到各类物品，易于比较并节省大量时间。
+本产品不适用于年龄太小、不以网络购物为主要目的的其它网民。
+
+4产品应当遵循的标准或规范
+本软件的开发完全按照企业标准开发。数据命名的规则遵循《语言编程规约》中相关的规定，软件开发遵循国际通用CMMI标准。
+5 产品范围
+本产品最终面向的用户群是以网络购物为主要目的的用户，通过本网络使用户通过搜索、选择产品、购入、评价等方式实现网络购物的目的。
+6 产品中的角色
+
+
+
+
+
+
+
+7 产品的功能性需求
+7.1 业务整体规划
+7.1.1 整体业务用例图
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.1.2 整体功能划分
+在本系统中，主要包括用户、卖家和管理员三个角色。本系统初期重点突出用户的管理的权限，具体用户的权限如下：
+用户自我管理。主要包括新用户的注册、登录和退出登录以及用户基本信息的管理三个部分，实现用户的相关自我的一些基本操作。
+查看商品。实现用户对商品的搜索查看等功能。
+收藏夹。实现用户对商品的收藏。
+购买商品。实现用户对商品的购买。
+评价商品。实现用户收货后对商品的评价。
+管理员权限如下：
+商品管理。体现管理员对各卖家的商品进行管理，如发现不合格商品，马上下架。
+支付宝。体现用户和卖家之间的桥梁，用户收到货物后管理员将用户打到支付宝的钱转到卖家卡上。
+举报管理。实现用户对卖家的投诉，核实实情，解决用户与卖家的矛盾，如果卖家货物不合格，则将卖家账号整顿，合格后继续上架。
+7.2 用户自我管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+用例描述：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.3搜查商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.4收藏商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.5购买商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.6评价商品
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.7订单管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.8订单管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.9商品管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.10划账管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7.11投诉管理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8 软硬件环境需求
+
+9 产品质量需求
+
+
+
+
+
+
+二、数据库设计
+0. 文档介绍
+0.1 文档目的
+本文档是SNS交友社区项目的第二阶段，本阶段主要解决系统用到的数据库的设计问题，数据库设计的根据是前一阶段形成的《系统需求规格说明书》，根据《系统规格说明书》中对系统的描述，确定系统涉及到的数据库表。
+本系统设计的数据库表是进行系统开发的基础，在数据库设计的基础上可以进行系统的详细设计。在以后的软件测试以及软件维护阶段也可参考此说明书，以便于了解在数据库设计阶段中设计的各个表的信息，或在下一阶段修改时找出在本阶段设计的不足或错误。
+ 
+0.2 文档范围
+文档包括：数据库环境说明，数据库命名规则，逻辑设计，物理设计，安全设计，数据库优化，数据库管理和维护说明等信息。
+0.3 读者对象
+数据库设计报告书的合法读者系统设计人员，数据库设计人员，编码人员，软件测试人员，客户。
+0.5 术语与缩写解释
+
+
+
+1. 数据库环境说明
+本系统采用Oracle数据库系统
+2. 数据库的命名规则
+（1）、表名以tb_开头，当表名中含有两个以上的英文单词时，单词间不加空格，但是从第二个单词开始的单词首字母要大写。
+	（2）、表中的字段名首字母小写，字段名中含有两个以上的英文单词时，单词间不加空格，但是从第二个单词开始的单词首字母要大写。
+3. 逻辑设计
+详细设计略。
+4. 物理设计
+4.0 表汇总
+
+
+4.1 tb_user表(用户信息表)
+
+4.2 tb_product表(商品信息表)
+
+
+4.3 tb_productType表（商品类型表）
+
+
+4.4 tb_order表（订单表）
+
+
+4.5 tb_userAccount表（用户资金流水表）
+
+
+4.6 tb_review表（评论表）
+
+
+4.7 tb_province表（省份数据字典）
+
+
+4.8 tb_city表（城市数据字典）
+
+
+4.9 tb_productSize表（商品型号表）
+
+
+
+4.10 tb_productColor表（商品颜色表）
+
+5. 安全性设计
+5.1 防止用户直接操作数据库的方法
+用户只能用帐号登陆到应用软件，通过相应的功能访问数据库，而没有其他途径操作数据库。
+5.2 角色与权限
+提示：确定每个角色对数据库表的操作权限，如创建、检索、更新、删除等。每个角色拥有刚好能够完成任务的权限，不多也不少。在应用时再为用户分配角色，则每个用户的权限等于他所兼角色的权限之和。
+
+
+
+6. 优化
+提示：分析并优化数据库的“时－空”效率，尽可能地“提高处理速度”并且“降低数据占用空间”。
+（1）分析“时－空”效率的瓶颈，找出优化对象（目标），并确定优先级。
+（2）当优化对象（目标）之间存在对抗时，给出折衷方案。
+（3）给出优化的具体措施，例如优化数据库环境参数，对表格进行反规范化处理等。
+
+
+
+7. 数据库管理与维护说明
+提示：在设计数据库的时候，及时给出管理与维护本数据库的方法，有助于将来撰写出正确完备的用户手册。
+
+
+三、附录
+
+一、创建数据库
+/*创建用户*/
+
+二、创建表
+/*创建tb_user表*/
+
+/*创建tb_product表*/
+
+/*创建tb_productType表*/
+
+/*创建tb_order表*/
+ (orderState,orderID) 
+
+/*创建tb_userAccount表*/
+
+/*创建tb_review表*/
+
+/*创建tb_province表*/
+
+/*创建tb_city表*/
+
+/*创建tb_productSize表*/
+
+/*创建tb_productColor表*/
+
+
+三、添加约束
+/*给每个表添加约束*/
+ Tb_user :
+
+
+
+Tb_product:
+
+
+Tb_order:
+
+
+
+Tb_useraccount:
+
+Tb_review:
+
+
+Tb_city:
+
+Tb_productsize:
+
+Tb_productcolor:
+
+四、基础数据(商品类型+省份+城市)添加
+
+/*基础数据(商品类型+省份+城市)添加*/
+/*tb_productType表添加商品类型*/
+ 
+
+/*tb_province表添加省份名称*/
+
+
+/*tb_city表给山东省添加城市名称*/
+
+
+五、用户数据(注册+信息完善)添加
+/*用户数据(注册+信息完善)添加*/
+/*tb_user表添加用户信息*/
+
+
+六、商品信息(商品信息+型号+颜色)添加
+/*商品信息(商品信息+型号+颜色)添加*/
+/*tb_product表添加商品信息*/
+
+
+/*tb_productSize表添加商品型号*/
+
+
+/*tb_productColor表添加商品型号*/
+
+
+
+七、删除用户信息
+/*删除用户****/
+
+
+八、商品信息查询
+/*商品信息查询*/
+
+/*单表查询*/
+/*查询tb_product表中商品id为的商品信息*/
+
+/*查询tb_productSize表中商品id为的型号信息*/
+
+
+
+/*查询tb_productColor表中商品型号id为、、的颜色与库存信息*/
+
+
+/*多表查询*/
+/*用户在商城以商品类型查询一件商品的名称*/
+declare 
+
+leixing varchar2(50);
+name varchar2(50);
+cursor cur1
+is
+select productname into name 
+from tb_product ,tb_producttype
+where tb_product.typeID =tb_producttype.producttypeID
+and producttypename = leixing;  
+begin
+leixing:='&商品类型';
+open cur1;
+dbms_output.put_line('商品如下:');
+loop
+fetch cur1 into name;
+exit when cur1%notfound;
+dbms_output.put_line('商品名称:'||name);
+end loop ;
+close cur1 ;
+end ;
+/
+
+
+
+/*用户在商城以商品名称查询一件商品的所有信息*/
+declare 
+yanse varchar2(20);
+kucun number;
+xinghao varchar2(20);
+name varchar2(50);
+cursor cur1
+is 
+select s.productsize,c.productcolor,c.stockpile into xinghao,yanse,kucun
+from tb_productsize s,tb_productcolor c,tb_product p
+where s.productsizeID=c.productsizeID
+and p.productID=s.productID
+and productname = name;
+begin 
+name :='&商品名称';
+open cur1;
+loop
+fetch cur1 into xinghao,yanse,kucun;
+exit when cur1%notfound;
+
+dbms_output.put_line('商品型号:'||xinghao||'商品颜色:'||yanse||'商品库存:'||kucun);
+end loop;
+close cur1;
+end;
+/
+
+
+
+九、用户信息查询
+/*用户信息查询*/
+/*用户在商城可以查询已知用户(或卖家)的基本信息*/
+
+
+十、用户下订单并确认付款（应用）
+/*用户下订单并确认付款(应用事务)*/
+/*用户***想要购买卖家***的产品颜色-大小-产品名*/
+
+/*定义变量,用于存储本次订单的物品单价*/
+price number;
+
+/*定义变量,用于存储本次订单的物品ID*/
+Productid number;
+
+/*定义变量,用于存储本次订单的颜色ID*/
+colorid number;
+
+/*定义变量,用于存储本次订单的买家ID*/
+buyid number;
+
+/*定义变量,用于存储流水表的用户ID*/
+accountuserid number;
+
+/*用户****下订单*/
+
+/*用户****将订单信息填入到tb_order表中*/
+		--orderState订单状态为用户选择填入下订单(买家付款后自动转为已付款,买家付款后卖家可选择修改为延后,卖家发货后选择修改为发货,买家未付款时卖家可选择修改为撤销,买家收到货物后可选择修改为完成)
+
+
+/*下订单后减少商品库存*/
+declare
+buyid number;
+sizeid number;
+colorid number;
+productid number;
+shengyu number;
+num number;
+danjia number;
+tel char(11);
+color varchar2(20);
+product varchar2(20);
+address varchar2(100);
+chicun varchar2(20);
+
+begin
+
+buyid := '&你的ID';
+color :='&颜色';
+chicun:='&尺寸';
+product:='&商品';
+num:='&数量';
+address :='&送货地址';
+
+select price into danjia from tb_product where productname =product ;
+select productID into productid from tb_product where productname =product;
+select productsizeID into sizeid from tb_productsize,tb_product where tb_product.productID=tb_productsize.productID and productsize =chicun and productname =product; 
+select productcolorID into colorid from tb_productcolor,tb_productsize where tb_productsize.productsizeID=tb_productcolor.productsizeID and  productcolor =color and productsize=chicun;
+select telephone into tel from tb_user where userID=buyid;
+select stockpile into shengyu from tb_productcolor ,tb_productsize where tb_productsize.productsizeID=tb_productcolor.productsizeID and productcolor=color and productsize =chicun;
+if shengyu>=num then
+insert into tb_order values(se_order.nextval,buyid,colorid,productid,address,tel,0,num,num*danjia,sysdate,null);
+dbms_output.put_line('订单等待支付中');
+update tb_productcolor set stockpile =stockpile-num;
+else 
+dbms_output.put_line('库存不足,购买失败！');
+
+end if;
+end;
+/
+
+
+/*确认付款后减少用户余额*/
+
+
+/*将用户付款的资金冻结后订单状态改为已付款*/
+
+
+/*用户账户上的钱转账完成后建立用户资金流水表一条买家购买商品支出记录*/
+
+
+
+十一、买家对订单信息进行修改（包括发货后的订单状态修改及修改商品颜色时应用事务）
+/*卖家对订单信息进行修改*/
+declare
+    alter_color varchar2(20);--修改的颜色
+    alter_colorid number;
+    buy_user varchar2(20);--买家姓名
+    product_type varchar2(20);--产品类型
+    product_id number;--产品id
+    color_id number;--原产品颜色id
+    product_stockpile number;--产品库存
+    
+begin
+    buy_user := '&请输入您的姓名';
+    product_type := '&请输入您要修改的产品类型';
+    alter_color := '&请输入您修改后的颜色';
+    
+    select distinct productid into product_id
+    from tb_user u,tb_order o
+    where u.userid = o.toid
+    and name = buy_user;
+    
+    select distinct o.colorid into color_id
+    from tb_productsize s,tb_productcolor c,tb_order o
+    where s.productsizeid = c.productsizeid
+    and s.productid = o.productid;
+    
+    select productcolorid into alter_colorid
+    from tb_productcolor
+    where productcolor = alter_color;
+    
+    select stockpile into product_stockpile
+    from tb_productcolor
+    where productcolor = alter_color;
+    
+    if product_stockpile > 0
+    then
+    begin
+        update tb_productcolor set stockpile = stockpile - 1
+        where productcolor = alter_color;
+        update tb_productcolor set stockpile = stockpile + 1
+        where productcolorid = color_id;
+    end;
+    else
+        dbms_output.put_line('库存不足');
+    end if;
+    exception
+        when others then
+        dbms_output.put_line('修改失败');
+        rollback;
+end;
+
+/*修改tb_order表中的送货地址*/
+declare
+    buy_user varchar2(20);--买家姓名    
+    alter_address varchar(50);--修改后的地址
+    user_id number;
+    alter_telephone char(11);--修改后的联系方式
+begin
+    buy_user := '&请输入您的姓名';
+    alter_address := '&请输入您修改后的地址';
+    alter_telephone := '&请输入您的联系方式';
+    
+    select userid into user_id
+    from tb_user
+    where name = buy_user;
+    
+    update tb_order set address = alter_address
+    where toid = user_id;
+    update tb_order set telephone = alter_telephone
+    where toid = user_id;
+    exception
+        when others then
+        dbms_output.put_line('修改失败');
+        rollback;
+end;
+/
+/*假设买家***想修改商品的颜色，则需要应用事务，对相应颜色的库存进行修改*/
+
+/*修改信息是各项信息均为可选择项，如不想修改某项信息，则选择以前的选项，但是会将数据重复的修改一次，即用相同的数据来覆盖之前的数据*/
+/*除此之外卖家发货后可将订单状态改为发货*/
+/*定义变量,用于存储本次订单的物品单价*/
+
+
+/*修改tb_order表中的送货地址*/
+declare
+    buy_user varchar2(20);--买家姓名    
+    alter_address varchar(50);--修改后的地址
+    user_id number;
+    alter_telephone char(11);--修改后的联系方式
+begin
+    buy_user := '&请输入您的姓名';
+    alter_address := '&请输入您修改后的地址';
+    alter_telephone := '&请输入您的联系方式';
+    
+    select userid into user_id
+    from tb_user
+    where name = buy_user;
+    
+    update tb_order set address = alter_address
+    where toid = user_id;
+    update tb_order set telephone = alter_telephone
+    where toid = user_id;
+    exception
+        when others then
+        dbms_output.put_line('修改失败');
+        rollback;
+end;
+/
+
+/*修改tb_order表中的联系方式*/
+
+
+/*修改tb_order表中的状态*/
+declare
+    alter_orderstate number;
+    order_id number;
+    alter_color varchar2(20);
+    alter_colorid number;
+    alter_price number;
+begin
+    order_id := &请输入订单编号;
+    alter_color := '&请输入修改后的颜色';
+    alter_orderstate := &请输入修改后的状态;
+    alter_price := &请输入修改后的总价;
+    
+    select productcolorid into alter_colorid
+    from tb_productcolor 
+    where productcolor = alter_color;
+    
+    update tb_order set orderstate = alter_orderstate
+    where orderid = order_id;
+    update tb_order set colorid = alter_colorid
+    where orderid = order_id;
+    update tb_order set price = alter_price
+    where orderid = order_id;
+    exception
+        when others then
+        dbms_output.put_line('修改失败');
+        rollback;
+end;
+/
+	--若卖家因故不能发货，但已付款则卖家可修改订单状态为'延后'
+
+
+/*修改tb_order表中的商品颜色*/
+
+
+/*修改tb_order表中的商品总价*/
+
+	--若和买家商议后买家同意降价，但商品信息上还是不修改的，就可以在订单总价上修改，付款后卖家修改总价，差价打回买家账户余额内
+declare
+    order_id number;--订单号
+    alter_price number;--修改后的价钱
+    unti_price number;--单价
+    product_count number;--数量
+    alter_money number;--差价
+    product_id number;
+    user_id number;
+    
+begin
+    order_id := &请输入订单编号;
+    
+    select productid,count,price,toid 
+    into product_id,product_count,alter_price,user_id
+    from tb_order 
+    where orderid = order_id;
+    
+    select price into unti_price
+    from tb_product
+    where productid = product_id;
+    
+    alter_money := product_count * unti_price - alter_price;
+    
+    update tb_user set money = money + alter_money
+    where userid = user_id;
+    
+    exception
+        when others then
+        dbms_output.put_line('修改失败');
+        rollback;
+end;
+/
+
+/*将与之前的差价加回买家账户余额内*/
+
+
+/*修改tb_user表中买家的账户余额*/
+
+
+/*修改颜色后要将之前选择的颜色库存加一再讲修改后的颜色库存减一*/
+
+
+
+十二、订单完成进行转账
+/*订单完成进行转账*/
+/*定义变量,用于存储流水表的用户ID*/
+create or replace procedure proc_toaccount(order_id in number)
+is
+   useraccount_id number;
+   user_name varchar2(20);
+   user_id number;
+   account_type number;
+begin
+    user_name := '&请输入您的姓名';
+    useraccount_id := line5.nextval;
+    
+    select userid into user_id
+    from tb_user
+    where name = user_name;
+    
+    select orderstate into account_type
+    from tb_order
+    where orderid = order_id;
+    
+    insert into tb_useraccount values(useraccount_id,user_id,order_id,
+        account_type,sysdate);
+end;
+/
+
+/*定义变量,用于存储本次订单的物品单价*/
+
+
+/*买家收到商品后，修改tb_order表中的状态*/
+declare
+    order_id number;
+begin
+    order_id := &请输入订单编号;
+    
+    update tb_order set orderstate = 2
+    where orderid = order_id;
+end;
+   /
+
+/*订单状态为'完成'后建立用户资金流水表一条卖家出售商品收入记录*/
+
+
+/*交易成功后卖家账户余额增加*/
+declare
+    order_id number;
+    user_id number;
+    product_price number;
+begin
+    order_id := &请输入订单编号;
+    
+    select userid,o.price into user_id,product_price
+    from tb_order o,tb_product p
+    where o.productid = p.productid
+    and orderid = order_id;
+    
+    update tb_user set money = money + product_price
+    where userid = user_id;
+end;
+/
+
+
+
+十三、货物丢件进行退款
+/*货物丢件进行退款*/
+/*前提条件:订单为发货状态，但物流出现丢件情况，由物流赔偿卖家，卖家确认丢件情况发生后，可进行退款操作*/
+/*定义变量,用于存储流水表的用户ID*/
+declare
+    user_id number;--买家id
+    order_id number;--订单号
+    product_price number;
+    order_state number;
+begin
+    order_id := &请输入订单号;
+    
+    select price，toid,orderstate into product_price,user_id,order_state
+    from tb_order
+    where orderid = order_id;
+    
+    if order_state = 4 then
+    begin
+        update tb_user set money = money + product_price
+        where userid = user_id;
+    end;
+    else
+    begin
+        dbms_output.put_line('更改失败');
+        rollback;
+    end;
+    end if;
+end;
+/
+
+
+/*卖家确认商品丢件后，修改tb_order表中的状态*/
+
+/*订单状态为'撤销'后建立用户资金流水表一条买家商品退款收入记录*/
+create or replace procedure proc_money(order_id in number)
+is
+   useraccount_id number;
+   user_name varchar2(20);
+   user_id number;
+begin
+    user_name := '&请输入您的姓名';
+    useraccount_id := line5.nextval;
+    
+    select userid into user_id
+    from tb_user
+    where name = user_name;
+    
+    insert into tb_useraccount values(useraccount_id,user_id,order_id,4,sysdate);
+end;
+/
+
+/*撤销成功后买家账户余额恢复*/
+
+十四、视图
+--/*多表查询*/
+--/*用户在商城以商品类型查询一件商品的名称*/
+create view pname_by_ptype
+as
+select productName from tb_product t1 join tb_producttype t2
+on t1.typeID = t2.producttypeID;
+
+
+
+
+--/*用户在商城以商品名称查询一件商品的所有信息*/
+create view info_by_pname
+as
+select productname,price,photo,information,producttypename,productsize,
+    productcolor,stockpile 
+from tb_product t1 join tb_productType t2 on t1.typeid = t2.productTypeId
+join tb_productSize t3 on t3.productid = t1.productid
+join tb_productColor t4 on t4.productsizeid = t3.productsizeid;
+
+
+
+--/*用户信息查询*/
+--/*用户在商城可以查询已知用户(或卖家)的基本信息*/
+create view info_by_pro
+as
+select name,email,provinceName,cityName,sex,age 
+from tb_product p join tb_user u on p.userID = u.userID
+join tb_city c on u.cityid = c.cityid
+join tb_province v on u.provinceid = v.provinceid;
+
+
+
+
+
+
+
+十五、用户登录(选做) 例如:sql server 格式:
+/*用户登录(应用存储过程)*/ 
+create procedure proc_land
+@resultName int = 0,	--定义为表示用户名错误
+@resultPassWord int =0,	--定义为表示密码错误
+@userName nvarchar(10) = '***',  
+@PassWord nvarchar(30) = 'jhc123'   
+as
+select @resultName = COUNT(1) from tb_user where name=@userName									--只要表中有输入的用户名则为表示用户名存在
+select @resultPassWord = COUNT(1) from tb_user where name=@userName and [password]=@PassWord	--若存在的这个用户的信息里的密码等与输入的密码则为表示密码核对无误
+begin
+if @resultName = 1 and @resultPassWord = 1
+	print '用户登录成功！'
+else if @resultName = 0
+	print '用户名错误！'
+else if @resultPassWord = 0
+	print '密码错误！'
+end
+
+
+
