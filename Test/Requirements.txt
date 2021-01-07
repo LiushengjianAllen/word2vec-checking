@@ -20,7 +20,7 @@ ifaddr==0.1.6
 itsdangerous==1.1.0
 Jinja2==2.10
 joystick==0.3.4
-lxml==4.3.3
+lxml==4.6.2
 MarkupSafe==1.1.1
 multidict==4.5.2
 netifaces==0.10.9
