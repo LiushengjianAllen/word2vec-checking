@@ -32,7 +32,7 @@ PyJWT==1.6.4
 python-miio==0.4.4
 python-slugify==1.2.6
 pytz==2018.9
-PyYAML==3.13
+PyYAML==5.4
 requests==2.21.0
 ruamel.yaml==0.15.88
 six==1.12.0
