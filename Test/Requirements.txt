@@ -39,7 +39,7 @@ six==1.12.0
 tqdm==4.31.1
 typing==3.6.6
 Unidecode==1.0.23
-urllib3==1.24.1
+urllib3==1.26.5
 voluptuous==0.11.5
 voluptuous-serialize==2.1.0
 Werkzeug==0.15.2
