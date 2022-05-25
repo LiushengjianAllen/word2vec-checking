@@ -28,7 +28,7 @@ Pillow==6.0.0
 pretty-cron==1.2.0
 pycparser==2.19
 pygame==1.9.5
-PyJWT==1.6.4
+PyJWT==2.4.0
 python-miio==0.4.4
 python-slugify==1.2.6
 pytz==2018.9
